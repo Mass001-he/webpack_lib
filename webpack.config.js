@@ -18,11 +18,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.worker\.js$/,
+        test: /\.worker\.ts$/,
         use: { loader: 'worker-loader', options: { inline: 'no-fallback' } },
       },
       {
-        test: /\.sharedworker\.js$/,
+        test: /\.sharedworker\.ts$/,
         use: { loader: 'worker-loader', options: { inline: 'no-fallback', worker: 'SharedWorker' } },
       },
       {

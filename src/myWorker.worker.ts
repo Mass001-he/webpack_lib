@@ -1,6 +1,8 @@
 import { printHello } from "./utils/index";
 import * as Comlink from "comlink";
 
+console.log("Worker loaded");
+
 const api = {
   add(a: number, b: number) {
     return a + b;
@@ -11,11 +13,11 @@ const api = {
 };
 
 self.onmessage = (event) => {
-  // console.log("Worker received:", event.data);
-  // printHello();
+  console.log("Worker received:", event.data);
+  printHello();
   self.postMessage("Hello from worker");
 };
 
-// Comlink.expose(api);
+Comlink.expose(api);
 
 export default {} as typeof Worker & { new (): Worker };

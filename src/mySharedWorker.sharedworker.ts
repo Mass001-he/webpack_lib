@@ -1,6 +1,8 @@
 // 使用 self 作为 SharedWorkerGlobalScope
 const ctx: SharedWorkerGlobalScope = self as any;
 
+console.log("SharedWorker loaded");
+
 ctx.onconnect = (event: MessageEvent) => {
   const port = event.ports[0];
   port.onmessage = (event: MessageEvent) => {
